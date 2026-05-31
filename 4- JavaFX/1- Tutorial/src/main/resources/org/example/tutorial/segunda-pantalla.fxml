@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="350.0" spacing="14.0"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.tutorial.SegundaPantallaController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <TableView fx:id="tablaPersonas" prefHeight="200.0">
+        <columns>
+            <TableColumn fx:id="columnaNombre" text="Nombre" prefWidth="180"/>
+            <TableColumn fx:id="columnaEdad"   text="Edad"   prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <TextField fx:id="nombreTextField" promptText="Inserta un nombre..."/>
+    <TextField fx:id="edadTextField"   promptText="Inserta tu edad..."/>
+    <Button text="Guardar" onAction="#guardarPersona"/>
+    <Button text="Volver a pantalla de inicio" onAction="#irAPantallaHello" textAlignment="CENTER"/>
+</VBox>
