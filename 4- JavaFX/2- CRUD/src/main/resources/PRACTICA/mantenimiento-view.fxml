@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="PRACTICA.Controller.MantenimientoController"
+      prefWidth="600" prefHeight="480"
+      style="-fx-padding: 16;">
+
+    <!-- Tabla de estudiantes -->
+    <TableView fx:id="tablaEstudiantes" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="columnaNia"       text="NIA"              prefWidth="120"/>
+            <TableColumn fx:id="columnaNombre"    text="Nombre"           prefWidth="180"/>
+            <TableColumn fx:id="columnaFechaNac"  text="Fecha nacimiento" prefWidth="180"/>
+        </columns>
+    </TableView>
+
+    <!-- Botones Editar / Eliminar -->
+    <HBox spacing="8" alignment="CENTER">
+        <Button fx:id="btnEditar"   text="Editar"   onAction="#onEditar"/>
+        <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar"/>
+    </HBox>
+
+    <!-- Formulario -->
+    <TextField fx:id="niaTextField"
+               promptText="Introduce un NIA..."
+               maxWidth="Infinity"/>
+
+    <TextField fx:id="nombreTextField"
+               promptText="Introduce un nombre..."
+               maxWidth="Infinity"/>
+
+    <HBox alignment="CENTER">
+        <DatePicker fx:id="fechaNacPicker" promptText="Fecha de nacimiento..."/>
+    </HBox>
+
+    <!-- Botones Insertar / Guardar -->
+    <HBox spacing="8" alignment="CENTER">
+        <Button fx:id="btnInsertar" text="Insertar" onAction="#onInsertar"/>
+        <Button fx:id="btnGuardar"  text="Guardar"  onAction="#onGuardar" disable="true"/>
+    </HBox>
+
+</VBox>
