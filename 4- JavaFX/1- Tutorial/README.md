@@ -2,7 +2,7 @@
 
 Tutorial guiado del tema 8.1 de la asignatura **Acceso a Datos / Gráficos**. Cubre los conceptos fundamentales de JavaFX siguiendo el patrón MVC: desde la primera ventana hasta la navegación entre pantallas, formularios y tablas con persistencia en memoria.
 
-> Todo el contenido está explicado paso a paso en el archivo [`[PDF] Practica 1`](./docs/javafx_teoria_guiada.pdf), incluyendo fragmentos de código comentados y la evolución progresiva de cada clase.
+> Todo el contenido está explicado paso a paso en el archivo [`[PDF] Practica 1`](./docs/[PDF]_Practica_1.pdf.pdf), incluyendo fragmentos de código comentados y la evolución progresiva de cada clase.
 
 ---
 
