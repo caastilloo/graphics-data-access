@@ -10,8 +10,7 @@ public class Pregunta {
     private String respuestaCorrecta;
     private List<String> respuestasIncorrectas;
 
-    public Pregunta(String categoria, String dificultad, String pregunta,
-                    String respuestaCorrecta, List<String> respuestasIncorrectas) {
+    public Pregunta(String categoria, String dificultad, String pregunta, String respuestaCorrecta, List<String> respuestasIncorrectas) {
         this.categoria = categoria;
         this.dificultad = dificultad;
         this.pregunta = pregunta;
