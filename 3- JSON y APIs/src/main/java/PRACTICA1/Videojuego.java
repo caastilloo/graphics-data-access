@@ -10,8 +10,7 @@ public class Videojuego {
     private boolean disponible;
     private List<String> generos;
 
-    public Videojuego(String nombre, String plataforma, double precio,
-                      boolean disponible, List<String> generos) {
+    public Videojuego(String nombre, String plataforma, double precio, boolean disponible, List<String> generos) {
         this.nombre = nombre;
         this.plataforma = plataforma;
         this.precio = precio;
