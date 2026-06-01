@@ -14,29 +14,22 @@ import java.util.ArrayList;
 
 public class MantenimientoController {
 
-    // ── TableView y columnas ──────────────────────────────────────────────
     @FXML private TableView<Estudiante>          tablaEstudiantes;
     @FXML private TableColumn<Estudiante, Integer>   columnaNia;
     @FXML private TableColumn<Estudiante, String>    columnaNombre;
     @FXML private TableColumn<Estudiante, LocalDate> columnaFechaNac;
 
-    // ── Formulario ────────────────────────────────────────────────────────
     @FXML private TextField  niaTextField;
     @FXML private TextField  nombreTextField;
     @FXML private DatePicker fechaNacPicker;
 
-    // ── Botones ───────────────────────────────────────────────────────────
     @FXML private Button btnInsertar;
     @FXML private Button btnEditar;
     @FXML private Button btnEliminar;
     @FXML private Button btnGuardar;
 
-    // ── Conexión BD ───────────────────────────────────────────────────────
     private Connection bd;
 
-    // ─────────────────────────────────────────────────────────────────────
-    // initialize(): se ejecuta automáticamente al cargar el FXML
-    // ─────────────────────────────────────────────────────────────────────
     @FXML
     public void initialize() {
 
@@ -62,18 +55,12 @@ public class MantenimientoController {
         cargarTabla();
     }
 
-    // ─────────────────────────────────────────────────────────────────────
-    // Método auxiliar: recarga la TableView desde la BD
-    // ─────────────────────────────────────────────────────────────────────
     private void cargarTabla() {
         ArrayList<Estudiante> lista = Mantenimiento.consultar(bd);
         ObservableList<Estudiante> observableList = FXCollections.observableArrayList(lista);
         tablaEstudiantes.setItems(observableList);
     }
 
-    // ─────────────────────────────────────────────────────────────────────
-    // Botón INSERTAR → INSERT en BD
-    // ─────────────────────────────────────────────────────────────────────
     @FXML
     private void onInsertar() {
 
@@ -93,9 +80,6 @@ public class MantenimientoController {
         cargarTabla();
     }
 
-    // ─────────────────────────────────────────────────────────────────────
-    // Botón ELIMINAR → DELETE en BD con la fila seleccionada
-    // ─────────────────────────────────────────────────────────────────────
     @FXML
     private void onEliminar() {
 
@@ -109,11 +93,6 @@ public class MantenimientoController {
         }
     }
 
-    // ─────────────────────────────────────────────────────────────────────
-    // Botón EDITAR → carga la fila seleccionada en el formulario
-    //   · Habilita Guardar
-    //   · Deshabilita Insertar
-    // ─────────────────────────────────────────────────────────────────────
     @FXML
     private void onEditar() {
 
@@ -132,11 +111,6 @@ public class MantenimientoController {
         }
     }
 
-    // ─────────────────────────────────────────────────────────────────────
-    // Botón GUARDAR → UPDATE en BD con los valores del formulario
-    //   · Vuelve a deshabilitar Guardar
-    //   · Vuelve a habilitar Insertar
-    // ─────────────────────────────────────────────────────────────────────
     @FXML
     private void onGuardar() {
 
@@ -155,9 +129,6 @@ public class MantenimientoController {
         cargarTabla();
     }
 
-    // ─────────────────────────────────────────────────────────────────────
-    // Auxiliar: limpia los campos del formulario
-    // ─────────────────────────────────────────────────────────────────────
     private void limpiarFormulario() {
         niaTextField.clear();
         nombreTextField.clear();
