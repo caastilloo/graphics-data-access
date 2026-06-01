@@ -11,27 +11,17 @@ public class MainPractica2 {
 
     public static void main(String[] args) throws Exception {
 
-        // -------------------------------------------------------
         // 1. URL de la API Open Trivia DB
-        //    - amount=5    -> 5 preguntas
-        //    - category=18 -> categoria: Informatica
-        //    - difficulty=easy -> nivel facil
-        //    - type=multiple  -> tipo test (una correcta, tres incorrectas)
-        // -------------------------------------------------------
         String urlStr = "https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple";
 
-        // -------------------------------------------------------
         // 2. Hacer la peticion HTTP GET
-        // -------------------------------------------------------
         URL url = new URL(urlStr);
         HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
         conexion.setRequestMethod("GET");
 
         System.out.println("Codigo HTTP de respuesta: " + conexion.getResponseCode());
 
-        // -------------------------------------------------------
         // 3. Leer el JSON de la respuesta
-        // -------------------------------------------------------
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(conexion.getInputStream()));
         StringBuilder sb = new StringBuilder();
@@ -45,14 +35,10 @@ public class MainPractica2 {
         System.out.println("\n--- JSON recibido ---");
         System.out.println(json);
 
-        // -------------------------------------------------------
         // 4. Parsear el JSON manualmente y construir objetos Java
-        // -------------------------------------------------------
         List<Pregunta> preguntas = parsearPreguntas(json);
 
-        // -------------------------------------------------------
         // 5. Mostrar las preguntas por pantalla
-        // -------------------------------------------------------
         System.out.println("\n--- Preguntas de trivia ---");
         int num = 1;
         for (Pregunta p : preguntas) {
@@ -62,10 +48,7 @@ public class MainPractica2 {
         }
     }
 
-    // -------------------------------------------------------
-    // Extrae cada bloque de pregunta del JSON y lo convierte
-    // en un objeto Pregunta buscando las claves por su nombre
-    // -------------------------------------------------------
+    // Extrae cada bloque de pregunta del JSON y lo convierte en un objeto Pregunta buscando las claves por su nombre
     private static List<Pregunta> parsearPreguntas(String json) {
         List<Pregunta> lista = new ArrayList<>();
 
@@ -102,7 +85,7 @@ public class MainPractica2 {
         return lista;
     }
 
-    // Extrae el valor de un campo String:  "clave":"valor"
+    // Extrae el valor de un campo String
     private static String extraerCampo(String bloque, String clave) {
         String buscar = "\"" + clave + "\":\"";
         int inicio = bloque.indexOf(buscar);
@@ -112,7 +95,7 @@ public class MainPractica2 {
         return bloque.substring(inicio, fin);
     }
 
-    // Extrae los valores de un array:  "clave":["a","b","c"]
+    // Extrae los valores de un array
     private static List<String> extraerArray(String bloque, String clave) {
         List<String> valores = new ArrayList<>();
         String buscar = "\"" + clave + "\":[";
