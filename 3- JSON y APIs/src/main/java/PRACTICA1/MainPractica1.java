@@ -9,9 +9,7 @@ public class MainPractica1 {
 
     public static void main(String[] args) throws IOException {
 
-        // -------------------------------------------------------
         // a) Crear 3 videojuegos distintos por consola
-        // -------------------------------------------------------
         List<Videojuego> coleccion = new ArrayList<>();
 
         // PS5
@@ -38,12 +36,7 @@ public class MainPractica1 {
         coleccion.add(new Videojuego("Counter-Strike 2", "PC", 0.0, true,
                 Arrays.asList("Shooter", "Estrategia")));
 
-        // -------------------------------------------------------
         // b) Guardar la coleccion en videojuegos.json
-        //    Construimos el JSON manualmente con StringBuilder,
-        //    siguiendo la estructura de pares clave:valor y arrays
-        //    que explica la teoria.
-        // -------------------------------------------------------
         String json = coleccionAJson(coleccion);
 
         try (FileWriter writer = new FileWriter("videojuegos.json")) {
@@ -51,9 +44,7 @@ public class MainPractica1 {
         }
         System.out.println("Coleccion guardada en videojuegos.json\n");
 
-        // -------------------------------------------------------
         // c) Leer el archivo y mostrarlo por pantalla
-        // -------------------------------------------------------
         StringBuilder sb = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader("videojuegos.json"))) {
             String linea;
@@ -64,11 +55,7 @@ public class MainPractica1 {
         System.out.println("--- Contenido del archivo ---");
         System.out.println(sb.toString());
 
-        // -------------------------------------------------------
         // d) Reconstruir la coleccion de objetos Java
-        //    Parseamos el JSON linea a linea buscando las claves
-        //    que definimos al escribirlo.
-        // -------------------------------------------------------
         List<Videojuego> coleccionReconstruida = jsonAColeccion(sb.toString());
 
         System.out.println("--- Coleccion reconstruida como objetos Java ---");
@@ -76,9 +63,7 @@ public class MainPractica1 {
             System.out.println(v);
         }
 
-        // -------------------------------------------------------
         // e) Añadir un videojuego nuevo y guardar
-        // -------------------------------------------------------
         Videojuego nuevo = new Videojuego(
                 "Zelda: Tears of the Kingdom", "Switch",
                 59.99, true, Arrays.asList("Aventura", "RPG"));
@@ -92,9 +77,7 @@ public class MainPractica1 {
         System.out.println("Coleccion actualizada guardada en videojuegos.json");
     }
 
-    // -------------------------------------------------------
     // Convierte un Videojuego a su bloque JSON
-    // -------------------------------------------------------
     private static String videojuegoAJson(Videojuego v) {
         StringBuilder sb = new StringBuilder();
         sb.append("  {\n");
@@ -113,9 +96,7 @@ public class MainPractica1 {
         return sb.toString();
     }
 
-    // -------------------------------------------------------
     // Convierte toda la coleccion a un array JSON
-    // -------------------------------------------------------
     private static String coleccionAJson(List<Videojuego> coleccion) {
         StringBuilder sb = new StringBuilder();
         sb.append("[\n");
@@ -128,9 +109,7 @@ public class MainPractica1 {
         return sb.toString();
     }
 
-    // -------------------------------------------------------
     // Parsea el JSON linea a linea y devuelve la coleccion
-    // -------------------------------------------------------
     private static List<Videojuego> jsonAColeccion(String json) {
         List<Videojuego> lista = new ArrayList<>();
         String[] lineas = json.split("\n");
