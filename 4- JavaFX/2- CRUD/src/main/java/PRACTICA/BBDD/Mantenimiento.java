@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 public class Mantenimiento {
 
-    // ─── Conexión ──────────────────────────────────────────────────────────
-
     public static Connection conexion() {
         Connection conexion;
         String host = "jdbc:mariadb://localhost:3307/";
@@ -29,8 +27,6 @@ public class Mantenimiento {
         return conexion;
     }
 
-    // ─── Desconexión ───────────────────────────────────────────────────────
-
     public static void desconectar(Connection conexion) {
         System.out.println("Desconectando...");
         try {
@@ -41,8 +37,6 @@ public class Mantenimiento {
             throw new RuntimeException(e);
         }
     }
-
-    // ─── SELECT → devuelve ArrayList<Estudiante> ──────────────────────────
 
     public static ArrayList<Estudiante> consultar(Connection conexion) {
 
@@ -72,13 +66,10 @@ public class Mantenimiento {
         return listaEstudiantes;
     }
 
-    // ─── INSERT ────────────────────────────────────────────────────────────
-
     public static void insertar(Connection conexion, Estudiante e) {
 
         System.out.println("Insertando...");
-
-        // Convertir LocalDate → java.sql.Date para la BD
+        
         String query = "INSERT INTO estudiantes (nia, nombre, fecha_nacimiento) VALUES ("
                 + e.getNia() + ", '"
                 + e.getNombre() + "', '"
@@ -94,8 +85,6 @@ public class Mantenimiento {
             throw new RuntimeException(ex);
         }
     }
-
-    // ─── UPDATE ────────────────────────────────────────────────────────────
 
     public static void modificar(Connection conexion, Estudiante e) {
 
@@ -115,8 +104,6 @@ public class Mantenimiento {
             throw new RuntimeException(ex);
         }
     }
-
-    // ─── DELETE ────────────────────────────────────────────────────────────
 
     public static void borrar(Connection conexion, Estudiante e) {
 
