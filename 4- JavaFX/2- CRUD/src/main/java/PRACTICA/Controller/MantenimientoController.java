@@ -14,13 +14,13 @@ import java.util.ArrayList;
 
 public class MantenimientoController {
 
-    @FXML private TableView<Estudiante>          tablaEstudiantes;
-    @FXML private TableColumn<Estudiante, Integer>   columnaNia;
-    @FXML private TableColumn<Estudiante, String>    columnaNombre;
+    @FXML private TableView<Estudiante> tablaEstudiantes;
+    @FXML private TableColumn<Estudiante, Integer> columnaNia;
+    @FXML private TableColumn<Estudiante, String> columnaNombre;
     @FXML private TableColumn<Estudiante, LocalDate> columnaFechaNac;
 
-    @FXML private TextField  niaTextField;
-    @FXML private TextField  nombreTextField;
+    @FXML private TextField niaTextField;
+    @FXML private TextField nombreTextField;
     @FXML private DatePicker fechaNacPicker;
 
     @FXML private Button btnInsertar;
@@ -64,9 +64,9 @@ public class MantenimientoController {
     @FXML
     private void onInsertar() {
 
-        int       nia    = Integer.parseInt(niaTextField.getText());
-        String    nombre = nombreTextField.getText();
-        LocalDate fecha  = fechaNacPicker.getValue();
+        int nia = Integer.parseInt(niaTextField.getText());
+        String nombre = nombreTextField.getText();
+        LocalDate fecha = fechaNacPicker.getValue();
 
         if (nombre.isEmpty() || fecha == null) {
             System.out.println("Faltan datos en el formulario.");
@@ -114,9 +114,9 @@ public class MantenimientoController {
     @FXML
     private void onGuardar() {
 
-        int       nia    = Integer.parseInt(niaTextField.getText());
-        String    nombre = nombreTextField.getText();
-        LocalDate fecha  = fechaNacPicker.getValue();
+        int nia = Integer.parseInt(niaTextField.getText());
+        String nombre = nombreTextField.getText();
+        LocalDate fecha = fechaNacPicker.getValue();
 
         Estudiante actualizado = new Estudiante(nia, nombre, fecha);
         Mantenimiento.modificar(bd, actualizado);
